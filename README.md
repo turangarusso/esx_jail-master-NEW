@@ -29,7 +29,7 @@ esx_jail-master-NEW
 
 Copy the folder in the resource file of your server
 
-You can change in the client the norification and also the police job name
+You can change in the client the notification and also the police job name
 
 ```lua
 RegisterCommand("prigione",function(_src, arg1)
