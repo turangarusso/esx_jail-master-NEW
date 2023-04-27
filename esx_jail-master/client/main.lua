@@ -53,16 +53,21 @@ RegisterCommand("prigione",function(_src, arg1)
     local xId = GetPlayerServerId(d)
 	local timeZ = tonumber(table.concat(arg1))
 
-	if ESX.GetPlayerData().job.name == "police" then 
+	if xId ~= nil then
 
-		TriggerServerEvent('esx_jail:sendToJail', xId, timeZ * 60)
+		if ESX.GetPlayerData().job.name == "police" then 
 
-		TriggerEvent('esx:showNotification', "Arresto Completato")
+			TriggerServerEvent('esx_jail:sendToJail', xId, timeZ * 60)
 
-	else
-		TriggerEvent('esx:showNotification', "Non hai il job police")
+			TriggerEvent('esx:showNotification', "Arresto Completato")
 
-	end
+		else
+			TriggerEvent('esx:showNotification', "Non hai il job police")
+
+		end
+
+	end	
+	
 end)
 
 Citizen.CreateThread(function()
