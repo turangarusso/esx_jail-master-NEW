@@ -1,6 +1,6 @@
 local isInJail, unjail = false, false
 local jailTime, fastTimer = 0, 0
---ESX = nil
+
 ESX = exports["es_extended"]:getSharedObject()
 
 
@@ -48,14 +48,15 @@ AddEventHandler('esx_jail:jailPlayer', function(_jailTime)
 end)
 
 RegisterCommand("prigione",function(_src, arg1)
-	print("eseguo comando")
 	local xPlayer = GetPlayerFromServerId(_src) 
 	local d, e = ESX.Game.GetClosestPlayer()
     local xId = GetPlayerServerId(d)
 	local timeZ = tonumber(table.concat(arg1))
-	print(xId)
+
 	if ESX.GetPlayerData().job.name == "police" then 
+
 		TriggerServerEvent('esx_jail:sendToJail', xId, timeZ * 60)
+
 		TriggerEvent('esx:showNotification', "Arresto Completato")
 
 	else
@@ -63,12 +64,6 @@ RegisterCommand("prigione",function(_src, arg1)
 
 	end
 end)
-
---[[ RegisterNetEvent('esx_jail:arresta')
-AddEventHandler('esx_jail:arresta', function()
-	local d, e = ESX.Game.GetClosestPlayer()
-    return d
-end) ]]
 
 Citizen.CreateThread(function()
 	while true do
