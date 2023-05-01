@@ -22,6 +22,7 @@ esx_jail-master-NEW
 * New /prigione TIME command for jail closer player for a custom time
 * Esx getSharedObject Update
 * Check if the player has the job "police"
+  - you can use this script without using esx_police now
 * Esx Notification system
 
 
